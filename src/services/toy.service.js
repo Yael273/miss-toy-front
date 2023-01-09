@@ -13,6 +13,18 @@ export const toyService = {
     getDefaultFilter
 }
 
+const labels = ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor", "Battery Powered"]
+const msgs = [{txt: 'hello', createdAt: new Date()}]
+
+const toy = {
+    "_id": "t101",
+    "name": "Talking Doll",
+    "price": 123,
+    "labels": ["Doll", "Battery Powered", "Baby"],
+    "createdAt": 1631031801011,
+    "inStock": true
+}
+
 
 function query(filterBy = getDefaultFilter()) {
     // return axios.get(BASE_URL).then(res => res.data)
@@ -20,7 +32,7 @@ function query(filterBy = getDefaultFilter()) {
         .then(toys => {
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
-                toys = toys.filter((toy) => regex.test(toy.title))
+                toys = toys.filter((toy) => regex.test(toy.name))
             }
             if (filterBy.maxPrice) {
                 toys = toys.filter(toy => toy.price <= filterBy.maxPrice)
@@ -47,15 +59,18 @@ function save(toy) {
 
 function getEmptyToy() {
     return {
-        title: '',
-        price: utilService.getRandomIntInclusive(1000, 9000),
+        "name": '',
+        "price": 0,
+        "labels": [],
+        "createdAt": Date.now(),
+        "inStock": true
     }
 }
 
 function getDefaultFilter() {
-    return { txt: '', maxPrice: 0 }
+    return { txt: '', maxPrice: 0, isStock: '' }
 }
 
 // TEST DATA
-// storageService.post(STORAGE_KEY, {title: 'Buzz lightyear', price: 980}).then(x => console.log(x))
+// storageService.post(STORAGE_KEY, toy).then(x => console.log(x))
 

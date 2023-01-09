@@ -51,12 +51,12 @@ export function ToyEdit(){
         <h2>{toyToEdit.id ? 'Edit this toy' : 'Add a new toy'}</h2>
 
 <form onSubmit={onSaveToy}>
-    <label htmlFor="title">Title : </label>
+    <label htmlFor="name">Name : </label>
     <input type="text"
-        name="title"
-        id="title"
-        placeholder="Enter title..."
-        value={toyToEdit.title}
+        name="name"
+        id="name"
+        placeholder="Enter name..."
+        value={toyToEdit.name}
         onChange={handleChange}
     />
     <label htmlFor="price">Price : </label>

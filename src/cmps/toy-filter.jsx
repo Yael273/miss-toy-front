@@ -27,11 +27,11 @@ export function ToyFilter({setFilterBy}){
 
     return <section className="toy-filter">
         <form>
-            <label htmlFor="title">Title:</label>
+            <label htmlFor="name">Name:</label>
             <input type="text"
-                id="title"
+                id="name"
                 name="txt"
-                placeholder="By title"
+                placeholder="By name"
                 value={filterByToEdit.txt}
                 onChange={handleChange}
                 ref={elInputRef}

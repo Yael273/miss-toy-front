@@ -1,0 +1,4 @@
+.toy-preview {
+    display: flex;
+    flex-direction: column;
+}
