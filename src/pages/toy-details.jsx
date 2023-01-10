@@ -36,6 +36,9 @@ export function ToyDetails() {
         <h1>{toy.name}</h1>
         <h4>Price: ${toy.price}</h4>
         <p>{utilService.formatTime(toy.createdAt)}</p>
+        <p>labels: {toy.labels.map(label => {
+            return label + ' '
+        })}</p>
         <p>{toy.inStock ? 'in stock' : 'out of stock'}</p>
         <button className="return" onClick={onGoBack}>return</button>
     </section>

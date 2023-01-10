@@ -20,8 +20,9 @@ export function ToyFilter({setFilterBy}){
     }, [filterByToEdit])
 
     function handleChange({ target }) {
-        let { value, name: field, type } = target
+        let { value, name: field, type, checked } = target
         value = (type === 'number') ? +value : value
+        value = (field === "inStock") ? checked : value
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
@@ -45,6 +46,15 @@ export function ToyFilter({setFilterBy}){
                 value={filterByToEdit.maxPrice}
                 onChange={handleChange}
             />
+            <label className='filter-label'>
+                <span className='filter-label'>In stock</span>
+                <input
+                    type="checkbox"
+                    onChange={handleChange}
+                    name="inStock"
+                    className="check-box"
+                />
+            </label>
 
             <button hidden>Filter</button>
         </form>

@@ -10,11 +10,13 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
-    getDefaultFilter
+    getDefaultFilter,
+    getLabels,
+    getDefaultSort
 }
 
 const labels = ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor", "Battery Powered"]
-const msgs = [{txt: 'hello', createdAt: new Date()}]
+const msgs = [{ txt: 'hello', createdAt: new Date() }]
 
 const toy = {
     "_id": "t101",
@@ -69,6 +71,14 @@ function getEmptyToy() {
 
 function getDefaultFilter() {
     return { txt: '', maxPrice: 0, isStock: '' }
+}
+
+function getDefaultSort() {
+    return { by: 'name', asc: true }
+}
+
+function getLabels() {
+    return labels
 }
 
 // TEST DATA

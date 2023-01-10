@@ -1,6 +1,6 @@
 
 import { toyService } from '../../services/toy.service.js'
-import { REMOVE_TOY, SET_TOYS, ADD_TOY, UPDATE_TOY, UNDO_REMOVE_TOY, SET_IS_LOADING, SET_FILTER} from '../reducer/toy.reducer.js'
+import { REMOVE_TOY, SET_TOYS, ADD_TOY, UPDATE_TOY, SET_IS_LOADING, SET_FILTER} from '../reducer/toy.reducer.js'
 import { store } from '../store.js'
 
 
